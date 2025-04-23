@@ -41,14 +41,14 @@ const Key: React.FC<KeyProps> = ({
     <div
       className={`
         ${getKeySize(label)} ${getKeyHeight(label)} m-1 
-        flex items-center justify-center rounded-md
-        border-2 border-gray-300
+        flex items-center justify-center rounded-lg
+        border-2 border-gray-400
         ${isPressed ? "bg-blue-500 text-white" : "bg-white text-gray-800"}
         ${className}
         transition-colors duration-100
         text-sm font-medium
-        shadow-sm text-center
-        hover:shadow-md
+        shadow-lg text-center
+        hover:shadow-2xl
       `}
     >
       {label}
