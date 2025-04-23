@@ -16,7 +16,7 @@ const Key: React.FC<KeyProps> = ({
   isSpecialKey = false,
 }) => {
   const getKeySize = (label: string) => {
-    if (label === "Space") return "w-[20rem]";
+    if (label === "Space") return "w-[25rem]";
     if (label === "Backspace") return "w-24";
     if (label === "Enter") return "w-28";
     if (label === "Left Shift" || label === "Right Shift") return "w-[8rem]";
@@ -24,10 +24,12 @@ const Key: React.FC<KeyProps> = ({
     if (label === "Caps Lock") return "w-26";
     if (label === "\\") return "w-18";
     if (
-      label === "Ctrl" ||
-      label === "Alt" ||
-      label === "Win" ||
-      label === "Menu"
+      label === "Left Ctrl" ||
+      label === "Right Ctrl" ||
+      label === "Left Alt" ||
+      label === "Right Alt" ||
+      label === "Left Win" ||
+      label === "Right Win"
     )
       return "w-20";
     return "w-14";

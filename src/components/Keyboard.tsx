@@ -10,7 +10,8 @@ const Keyboard: React.FC = () => {
   const getDisplayKey = (key: string): string => {
     const keyMap: { [key: string]: string } = {
       " ": "Space",
-      Control: "Ctrl",
+      ControlLeft: "Left Ctrl",
+      ControlRight: "Right Ctrl",
       Meta: "Win",
       ArrowUp: "↑",
       ArrowDown: "↓",
@@ -67,6 +68,18 @@ const Keyboard: React.FC = () => {
           ? "Left Shift"
           : e.code === "ShiftRight"
           ? "Right Shift"
+          : e.code === "ControlLeft"
+          ? "Left Ctrl"
+          : e.code === "ControlRight"
+          ? "Right Ctrl"
+          : e.code === "AltLeft"
+          ? "Left Alt"
+          : e.code === "AltRight"
+          ? "Right Alt"
+          : e.code === "MetaLeft"
+          ? "Left Win"
+          : e.code === "MetaRight"
+          ? "Right Win"
           : getDisplayKey(e.key);
       setPressedKeys((prev) => new Set(prev).add(displayKey));
       setKeyHistory((prev) => new Set(prev).add(displayKey));
@@ -87,6 +100,18 @@ const Keyboard: React.FC = () => {
           ? "Left Shift"
           : e.code === "ShiftRight"
           ? "Right Shift"
+          : e.code === "ControlLeft"
+          ? "Left Ctrl"
+          : e.code === "ControlRight"
+          ? "Right Ctrl"
+          : e.code === "AltLeft"
+          ? "Left Alt"
+          : e.code === "AltRight"
+          ? "Right Alt"
+          : e.code === "MetaLeft"
+          ? "Left Win"
+          : e.code === "MetaRight"
+          ? "Right Win"
           : getDisplayKey(e.key);
       setPressedKeys((prev) => {
         const newSet = new Set(prev);
@@ -173,14 +198,13 @@ const Keyboard: React.FC = () => {
     "Right Shift",
   ];
   const fifthRow = [
-    "Ctrl",
-    "Win",
-    "Alt",
+    "Left Ctrl",
+    "Left Win",
+    "Left Alt",
     "Space",
-    "Alt",
-    "Win",
-    "Menu",
-    "Ctrl",
+    "Right Alt",
+    "Right Win",
+    "Right Ctrl",
   ];
 
   const specialKeys1 = ["Insert", "Home", "Page Up"];
@@ -189,7 +213,7 @@ const Keyboard: React.FC = () => {
   return (
     <div className="flex flex-col items-start p-4 bg-gray-100 rounded-xl shadow-2xl">
       {/* Function Keys */}
-      <div className="flex w-full mb-2 gap-3">
+      <div className="flex w-full mb-1 gap-1">
         <div>
           {escKey.map((key) => (
             <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
