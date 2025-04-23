@@ -26,6 +26,8 @@ const Keyboard: React.FC = () => {
       CapsLock: "Caps Lock",
       ShiftLeft: "Left Shift",
       ShiftRight: "Right Shift",
+      Insert: "Insert",
+      Help: "Insert",
       a: "A",
       b: "B",
       c: "C",
@@ -228,7 +230,7 @@ const Keyboard: React.FC = () => {
   const specialKeys2 = ["Delete", "End", "Page Down"];
 
   return (
-    <div className="flex flex-col items-start p-4 bg-gray-100 rounded-xl shadow-2xl">
+    <div className="flex flex-col items-start p-2 bg-gray-100 rounded-xl shadow-2xl">
       {/* Function Keys */}
       <div className="flex w-full mb-1 gap-1">
         <div>
@@ -333,7 +335,7 @@ const Keyboard: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex mb-1">
+          <div className="flex">
             {fifthRow.map((key) => (
               <Key
                 key={key}
@@ -346,7 +348,7 @@ const Keyboard: React.FC = () => {
         </div>
 
         {/* Special Keys and Arrow Keys */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
           <div className="flex flex-col">
             <div className="flex mb-1">
               {specialKeys1.map((key) => (
@@ -371,7 +373,7 @@ const Keyboard: React.FC = () => {
           </div>
 
           {/* Arrow Keys */}
-          <div className="flex flex-col items-center mt-17">
+          <div className="flex flex-col items-center mt-15">
             <Key
               key="↑"
               label="↑"
