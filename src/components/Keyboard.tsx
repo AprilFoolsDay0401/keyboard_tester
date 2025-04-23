@@ -57,9 +57,36 @@ const Keyboard: React.FC = () => {
     };
 
     if (key === "Shift") {
-      return "Left Shift"; // 기본값으로 왼쪽 Shift 반환
+      return "Right Shift"; // 기본값으로 왼쪽 Shift 반환
     }
     return keyMap[key] || key;
+  };
+
+  const getDisplayKeyFromEvent = (e: KeyboardEvent): string => {
+    switch (e.code) {
+      case "ShiftLeft":
+        return "Left Shift";
+      case "ShiftRight":
+        return "Right Shift";
+      case "ControlLeft":
+        return "Left Ctrl";
+      case "ControlRight":
+        return "Right Ctrl";
+      case "AltLeft":
+        return "Left Alt";
+      case "AltRight":
+        return "Right Alt";
+      case "MetaLeft":
+        return "Left Win";
+      case "MetaRight":
+        return "Right Win";
+      case "Insert":
+        return "Insert";
+      case "CapsLock":
+        return "Caps Lock";
+      default:
+        return getDisplayKey(e.key === "Help" ? "Insert" : e.key);
+    }
   };
 
   useEffect(() => {
@@ -79,24 +106,25 @@ const Keyboard: React.FC = () => {
         return;
       }
 
-      const displayKey =
-        e.code === "ShiftLeft"
-          ? "Left Shift"
-          : e.code === "ShiftRight"
-          ? "Right Shift"
-          : e.code === "ControlLeft"
-          ? "Left Ctrl"
-          : e.code === "ControlRight"
-          ? "Right Ctrl"
-          : e.code === "AltLeft"
-          ? "Left Alt"
-          : e.code === "AltRight"
-          ? "Right Alt"
-          : e.code === "MetaLeft"
-          ? "Left Win"
-          : e.code === "MetaRight"
-          ? "Right Win"
-          : getDisplayKey(e.key);
+      // const displayKey =
+      //   e.code === "ShiftLeft"
+      //     ? "Left Shift"
+      //     : e.code === "ShiftRight"
+      //     ? "Right Shift"
+      //     : e.code === "ControlLeft"
+      //     ? "Left Ctrl"
+      //     : e.code === "ControlRight"
+      //     ? "Right Ctrl"
+      //     : e.code === "AltLeft"
+      //     ? "Left Alt"
+      //     : e.code === "AltRight"
+      //     ? "Right Alt"
+      //     : e.code === "MetaLeft"
+      //     ? "Left Win"
+      //     : e.code === "MetaRight"
+      //     ? "Right Win"
+      //     : getDisplayKey(e.key);
+      const displayKey = getDisplayKeyFromEvent(e);
       setPressedKeys((prev) => new Set(prev).add(displayKey));
       setKeyHistory((prev) => new Set(prev).add(displayKey));
       console.log(
@@ -114,24 +142,25 @@ const Keyboard: React.FC = () => {
 
       if (e.code === "CapsLock") return;
 
-      const displayKey =
-        e.code === "ShiftLeft"
-          ? "Left Shift"
-          : e.code === "ShiftRight"
-          ? "Right Shift"
-          : e.code === "ControlLeft"
-          ? "Left Ctrl"
-          : e.code === "ControlRight"
-          ? "Right Ctrl"
-          : e.code === "AltLeft"
-          ? "Left Alt"
-          : e.code === "AltRight"
-          ? "Right Alt"
-          : e.code === "MetaLeft"
-          ? "Left Win"
-          : e.code === "MetaRight"
-          ? "Right Win"
-          : getDisplayKey(e.key);
+      // const displayKey =
+      //   e.code === "ShiftLeft"
+      //     ? "Left Shift"
+      //     : e.code === "ShiftRight"
+      //     ? "Right Shift"
+      //     : e.code === "ControlLeft"
+      //     ? "Left Ctrl"
+      //     : e.code === "ControlRight"
+      //     ? "Right Ctrl"
+      //     : e.code === "AltLeft"
+      //     ? "Left Alt"
+      //     : e.code === "AltRight"
+      //     ? "Right Alt"
+      //     : e.code === "MetaLeft"
+      //     ? "Left Win"
+      //     : e.code === "MetaRight"
+      //     ? "Right Win"
+      //     : getDisplayKey(e.key);
+      const displayKey = getDisplayKeyFromEvent(e);
       setPressedKeys((prev) => {
         const newSet = new Set(prev);
         newSet.delete(displayKey);
@@ -232,7 +261,7 @@ const Keyboard: React.FC = () => {
   return (
     <div className="flex flex-col items-start p-2 bg-gray-100 rounded-xl shadow-2xl">
       {/* Function Keys */}
-      <div className="flex w-full mb-1 gap-1">
+      <div className="flex w-full gap-1">
         <div>
           {escKey.map((key) => (
             <Key
@@ -291,7 +320,7 @@ const Keyboard: React.FC = () => {
       <div className="flex gap-8">
         {/* Main Keyboard */}
         <div className="flex flex-col">
-          <div className="flex mb-1">
+          <div className="flex ">
             {firstRow.map((key) => (
               <Key
                 key={key}
@@ -302,7 +331,7 @@ const Keyboard: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex mb-1">
+          <div className="flex">
             {secondRow.map((key) => (
               <Key
                 key={key}
@@ -313,7 +342,7 @@ const Keyboard: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex mb-1">
+          <div className="flex">
             {thirdRow.map((key) => (
               <Key
                 key={key}
@@ -324,7 +353,7 @@ const Keyboard: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex mb-1">
+          <div className="flex">
             {fourthRow.map((key) => (
               <Key
                 key={key}
@@ -350,7 +379,7 @@ const Keyboard: React.FC = () => {
         {/* Special Keys and Arrow Keys */}
         <div className="flex flex-col">
           <div className="flex flex-col">
-            <div className="flex mb-1">
+            <div className="flex ">
               {specialKeys1.map((key) => (
                 <Key
                   key={key}
@@ -373,7 +402,7 @@ const Keyboard: React.FC = () => {
           </div>
 
           {/* Arrow Keys */}
-          <div className="flex flex-col items-center mt-15">
+          <div className="flex flex-col items-center mt-12">
             <Key
               key="↑"
               label="↑"
