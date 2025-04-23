@@ -63,6 +63,20 @@ const Keyboard: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       e.preventDefault();
+
+      if (e.code === "CapsLock") {
+        setPressedKeys((prev) => new Set(prev).add("Caps Lock"));
+        setTimeout(() => {
+          setPressedKeys((prev) => {
+            const newSet = new Set(prev);
+            newSet.delete("Caps Lock");
+            return newSet;
+          });
+        }, 150);
+        setKeyHistory((prev) => new Set(prev).add("Caps Lock"));
+        return;
+      }
+
       const displayKey =
         e.code === "ShiftLeft"
           ? "Left Shift"
@@ -95,6 +109,9 @@ const Keyboard: React.FC = () => {
 
     const handleKeyUp = (e: KeyboardEvent) => {
       e.preventDefault();
+
+      if (e.code === "CapsLock") return;
+
       const displayKey =
         e.code === "ShiftLeft"
           ? "Left Shift"
@@ -216,28 +233,53 @@ const Keyboard: React.FC = () => {
       <div className="flex w-full mb-1 gap-1">
         <div>
           {escKey.map((key) => (
-            <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+            <Key
+              key={key}
+              label={key}
+              isPressed={pressedKeys.has(key)}
+              wasPressed={keyHistory.has(key)}
+            />
           ))}
         </div>
         <div className="flex gap-11">
           <div className="flex">
             {functionKeys1.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
           <div className="flex">
             {functionKeys2.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
           <div className="flex">
             {functionKeys3.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
           <div className="flex">
             {functionKeys4.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
         </div>
@@ -249,31 +291,56 @@ const Keyboard: React.FC = () => {
         <div className="flex flex-col">
           <div className="flex mb-1">
             {firstRow.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
 
           <div className="flex mb-1">
             {secondRow.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
 
           <div className="flex mb-1">
             {thirdRow.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
 
           <div className="flex mb-1">
             {fourthRow.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
 
           <div className="flex mb-1">
             {fifthRow.map((key) => (
-              <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+              <Key
+                key={key}
+                label={key}
+                isPressed={pressedKeys.has(key)}
+                wasPressed={keyHistory.has(key)}
+              />
             ))}
           </div>
         </div>
@@ -283,23 +350,53 @@ const Keyboard: React.FC = () => {
           <div className="flex flex-col">
             <div className="flex mb-1">
               {specialKeys1.map((key) => (
-                <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+                <Key
+                  key={key}
+                  label={key}
+                  isPressed={pressedKeys.has(key)}
+                  wasPressed={keyHistory.has(key)}
+                />
               ))}
             </div>
             <div className="flex">
               {specialKeys2.map((key) => (
-                <Key key={key} label={key} isPressed={pressedKeys.has(key)} />
+                <Key
+                  key={key}
+                  label={key}
+                  isPressed={pressedKeys.has(key)}
+                  wasPressed={keyHistory.has(key)}
+                />
               ))}
             </div>
           </div>
 
           {/* Arrow Keys */}
           <div className="flex flex-col items-center mt-17">
-            <Key key="↑" label="↑" isPressed={pressedKeys.has("↑")} />
+            <Key
+              key="↑"
+              label="↑"
+              isPressed={pressedKeys.has("↑")}
+              wasPressed={keyHistory.has("↑")}
+            />
             <div className="flex">
-              <Key key="←" label="←" isPressed={pressedKeys.has("←")} />
-              <Key key="↓" label="↓" isPressed={pressedKeys.has("↓")} />
-              <Key key="→" label="→" isPressed={pressedKeys.has("→")} />
+              <Key
+                key="←"
+                label="←"
+                isPressed={pressedKeys.has("←")}
+                wasPressed={keyHistory.has("←")}
+              />
+              <Key
+                key="↓"
+                label="↓"
+                isPressed={pressedKeys.has("↓")}
+                wasPressed={keyHistory.has("↓")}
+              />
+              <Key
+                key="→"
+                label="→"
+                isPressed={pressedKeys.has("→")}
+                wasPressed={keyHistory.has("→")}
+              />
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import React from "react";
 interface KeyProps {
   label: string;
   isPressed: boolean;
+  wasPressed?: boolean;
   className?: string;
   isSpecialKey?: boolean;
 }
@@ -12,6 +13,7 @@ interface KeyProps {
 const Key: React.FC<KeyProps> = ({
   label,
   isPressed,
+  wasPressed,
   className = "",
   isSpecialKey = false,
 }) => {
@@ -45,7 +47,13 @@ const Key: React.FC<KeyProps> = ({
         ${getKeySize(label)} ${getKeyHeight(label)} m-1 
         flex items-center justify-center rounded-lg
         border-2 border-gray-400
-        ${isPressed ? "bg-blue-500 text-white" : "bg-white text-gray-700"}
+        ${
+          isPressed
+            ? "bg-blue-500 text-white"
+            : wasPressed
+            ? "bg-sky-400 text-white"
+            : "bg-white text-gray-700"
+        }
         ${className}
         transition-colors duration-100
         text-sm font-medium
