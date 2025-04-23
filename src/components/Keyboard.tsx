@@ -57,7 +57,7 @@ const Keyboard: React.FC = () => {
     };
 
     if (key === "Shift") {
-      return "Right Shift"; // 기본값으로 왼쪽 Shift 반환
+      return "Right Shift"; // 기본값으로 오른쪽 Shift 반환
     }
     return keyMap[key] || key;
   };
@@ -261,7 +261,7 @@ const Keyboard: React.FC = () => {
   return (
     <div className="flex flex-col items-start p-2 bg-gray-100 rounded-xl shadow-2xl">
       {/* Function Keys */}
-      <div className="flex w-full gap-1">
+      <div className="flex w-full gap-2">
         <div>
           {escKey.map((key) => (
             <Key
@@ -272,7 +272,7 @@ const Keyboard: React.FC = () => {
             />
           ))}
         </div>
-        <div className="flex gap-11">
+        <div className="flex gap-10">
           <div className="flex">
             {functionKeys1.map((key) => (
               <Key
