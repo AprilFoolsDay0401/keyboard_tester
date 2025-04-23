@@ -43,7 +43,7 @@ const Key: React.FC<KeyProps> = ({
         ${getKeySize(label)} ${getKeyHeight(label)} m-1 
         flex items-center justify-center rounded-lg
         border-2 border-gray-400
-        ${isPressed ? "bg-blue-500 text-white" : "bg-white text-gray-800"}
+        ${isPressed ? "bg-blue-500 text-white" : "bg-white text-gray-700"}
         ${className}
         transition-colors duration-100
         text-sm font-medium
