@@ -106,24 +106,6 @@ const Keyboard: React.FC = () => {
         return;
       }
 
-      // const displayKey =
-      //   e.code === "ShiftLeft"
-      //     ? "Left Shift"
-      //     : e.code === "ShiftRight"
-      //     ? "Right Shift"
-      //     : e.code === "ControlLeft"
-      //     ? "Left Ctrl"
-      //     : e.code === "ControlRight"
-      //     ? "Right Ctrl"
-      //     : e.code === "AltLeft"
-      //     ? "Left Alt"
-      //     : e.code === "AltRight"
-      //     ? "Right Alt"
-      //     : e.code === "MetaLeft"
-      //     ? "Left Win"
-      //     : e.code === "MetaRight"
-      //     ? "Right Win"
-      //     : getDisplayKey(e.key);
       const displayKey = getDisplayKeyFromEvent(e);
       setPressedKeys((prev) => new Set(prev).add(displayKey));
       setKeyHistory((prev) => new Set(prev).add(displayKey));
@@ -142,24 +124,6 @@ const Keyboard: React.FC = () => {
 
       if (e.code === "CapsLock") return;
 
-      // const displayKey =
-      //   e.code === "ShiftLeft"
-      //     ? "Left Shift"
-      //     : e.code === "ShiftRight"
-      //     ? "Right Shift"
-      //     : e.code === "ControlLeft"
-      //     ? "Left Ctrl"
-      //     : e.code === "ControlRight"
-      //     ? "Right Ctrl"
-      //     : e.code === "AltLeft"
-      //     ? "Left Alt"
-      //     : e.code === "AltRight"
-      //     ? "Right Alt"
-      //     : e.code === "MetaLeft"
-      //     ? "Left Win"
-      //     : e.code === "MetaRight"
-      //     ? "Right Win"
-      //     : getDisplayKey(e.key);
       const displayKey = getDisplayKeyFromEvent(e);
       setPressedKeys((prev) => {
         const newSet = new Set(prev);
