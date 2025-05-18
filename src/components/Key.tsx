@@ -8,6 +8,9 @@ interface KeyProps {
   wasPressed?: boolean;
   className?: string;
   isSpecialKey?: boolean;
+  onMouseDown?: () => void;
+  onMouseUp?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const Key: React.FC<KeyProps> = ({
@@ -16,6 +19,9 @@ const Key: React.FC<KeyProps> = ({
   wasPressed,
   className = "",
   isSpecialKey = false,
+  onMouseDown,
+  onMouseUp,
+  onMouseLeave,
 }) => {
   const getKeySize = (label: string) => {
     if (label === "Space") return "w-70";
@@ -59,7 +65,11 @@ const Key: React.FC<KeyProps> = ({
         text-xs font-medium
         shadow-lg text-center
         hover:shadow-2xl
+        cursor-pointer
       `}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseLeave}
     >
       {label}
     </div>

@@ -1,11 +1,40 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Key from "./Key";
+
+// Web Audio API hook
+function useMechKeySound() {
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const bufferRef = useRef<AudioBuffer | null>(null);
+
+  useEffect(() => {
+    audioCtxRef.current = new (window.AudioContext ||
+      (window as any).webkitAudioContext)();
+    fetch("/sounds/mech-key.wav")
+      .then((res) => res.arrayBuffer())
+      .then((arrayBuffer) => audioCtxRef.current!.decodeAudioData(arrayBuffer))
+      .then((audioBuffer) => {
+        bufferRef.current = audioBuffer;
+      });
+  }, []);
+
+  const play = () => {
+    if (audioCtxRef.current && bufferRef.current) {
+      const source = audioCtxRef.current.createBufferSource();
+      source.buffer = bufferRef.current;
+      source.connect(audioCtxRef.current.destination);
+      source.start(0);
+    }
+  };
+
+  return play;
+}
 
 const Keyboard: React.FC = () => {
   const [pressedKeys, setPressedKeys] = useState<Set<string>>(new Set());
   const [keyHistory, setKeyHistory] = useState<Set<string>>(new Set());
+  const playSound = useMechKeySound();
 
   const getDisplayKey = (key: string): string => {
     const keyMap: { [key: string]: string } = {
@@ -91,7 +120,10 @@ const Keyboard: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // 넘패드 키는 무시
+      if (e.code.startsWith("Numpad")) return;
       e.preventDefault();
+      playSound();
 
       if (e.code === "CapsLock") {
         setPressedKeys((prev) => new Set(prev).add("Caps Lock"));
@@ -120,6 +152,8 @@ const Keyboard: React.FC = () => {
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
+      // 넘패드 키는 무시
+      if (e.code.startsWith("Numpad")) return;
       e.preventDefault();
 
       if (e.code === "CapsLock") return;
@@ -140,6 +174,20 @@ const Keyboard: React.FC = () => {
       window.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
+
+  // 마우스 클릭용 핸들러 추가
+  const handleMouseDown = (key: string) => {
+    setPressedKeys((prev) => new Set(prev).add(key));
+    setKeyHistory((prev) => new Set(prev).add(key));
+    playSound();
+  };
+  const handleMouseUp = (key: string) => {
+    setPressedKeys((prev) => {
+      const newSet = new Set(prev);
+      newSet.delete(key);
+      return newSet;
+    });
+  };
 
   // 키보드 레이아웃
   const escKey = ["Esc"];
@@ -223,7 +271,7 @@ const Keyboard: React.FC = () => {
   const specialKeys2 = ["Delete", "End", "Page Down"];
 
   return (
-    <div className="flex flex-col items-start p-2 bg-gray-100 rounded-xl shadow-2xl">
+    <div className="flex flex-col items-start p-2 bg-gray-200 rounded-xl shadow-2xl border-2 border-gray-400">
       {/* Function Keys */}
       <div className="flex w-full gap-2">
         <div>
@@ -233,6 +281,9 @@ const Keyboard: React.FC = () => {
               label={key}
               isPressed={pressedKeys.has(key)}
               wasPressed={keyHistory.has(key)}
+              onMouseDown={() => handleMouseDown(key)}
+              onMouseUp={() => handleMouseUp(key)}
+              onMouseLeave={() => handleMouseUp(key)}
             />
           ))}
         </div>
@@ -244,6 +295,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -254,6 +308,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -264,6 +321,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -274,6 +334,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -291,6 +354,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -302,6 +368,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -313,6 +382,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -324,6 +396,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -335,6 +410,9 @@ const Keyboard: React.FC = () => {
                 label={key}
                 isPressed={pressedKeys.has(key)}
                 wasPressed={keyHistory.has(key)}
+                onMouseDown={() => handleMouseDown(key)}
+                onMouseUp={() => handleMouseUp(key)}
+                onMouseLeave={() => handleMouseUp(key)}
               />
             ))}
           </div>
@@ -350,6 +428,9 @@ const Keyboard: React.FC = () => {
                   label={key}
                   isPressed={pressedKeys.has(key)}
                   wasPressed={keyHistory.has(key)}
+                  onMouseDown={() => handleMouseDown(key)}
+                  onMouseUp={() => handleMouseUp(key)}
+                  onMouseLeave={() => handleMouseUp(key)}
                 />
               ))}
             </div>
@@ -360,6 +441,9 @@ const Keyboard: React.FC = () => {
                   label={key}
                   isPressed={pressedKeys.has(key)}
                   wasPressed={keyHistory.has(key)}
+                  onMouseDown={() => handleMouseDown(key)}
+                  onMouseUp={() => handleMouseUp(key)}
+                  onMouseLeave={() => handleMouseUp(key)}
                 />
               ))}
             </div>
@@ -372,6 +456,9 @@ const Keyboard: React.FC = () => {
               label="↑"
               isPressed={pressedKeys.has("↑")}
               wasPressed={keyHistory.has("↑")}
+              onMouseDown={() => handleMouseDown("↑")}
+              onMouseUp={() => handleMouseUp("↑")}
+              onMouseLeave={() => handleMouseUp("↑")}
             />
             <div className="flex">
               <Key
@@ -379,18 +466,27 @@ const Keyboard: React.FC = () => {
                 label="←"
                 isPressed={pressedKeys.has("←")}
                 wasPressed={keyHistory.has("←")}
+                onMouseDown={() => handleMouseDown("←")}
+                onMouseUp={() => handleMouseUp("←")}
+                onMouseLeave={() => handleMouseUp("←")}
               />
               <Key
                 key="↓"
                 label="↓"
                 isPressed={pressedKeys.has("↓")}
                 wasPressed={keyHistory.has("↓")}
+                onMouseDown={() => handleMouseDown("↓")}
+                onMouseUp={() => handleMouseUp("↓")}
+                onMouseLeave={() => handleMouseUp("↓")}
               />
               <Key
                 key="→"
                 label="→"
                 isPressed={pressedKeys.has("→")}
                 wasPressed={keyHistory.has("→")}
+                onMouseDown={() => handleMouseDown("→")}
+                onMouseUp={() => handleMouseUp("→")}
+                onMouseLeave={() => handleMouseUp("→")}
               />
             </div>
           </div>

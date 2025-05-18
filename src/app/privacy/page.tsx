@@ -5,11 +5,31 @@ export default function PrivacyPolicy() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between text-white p-2">
       {/* Site Title */}
-      <header className="w-full text-center my-10">
-        <h1 className="text-5xl font-bold text-white mb-2">Privacy Policy</h1>
-        <p className="text-lg text-white">
-          Learn about how we handle your data and cookies
-        </p>
+      <header className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center py-10 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 rounded-2xl shadow-xl mb-4">
+        <div className="flex flex-col items-center">
+          <span className="inline-block mb-3">
+            {/* Keyboard SVG Icon */}
+            <svg width="48" height="48" fill="none" viewBox="0 0 24 24">
+              <rect
+                width="24"
+                height="24"
+                rx="6"
+                fill="#fff"
+                fillOpacity="0.15"
+              />
+              <path
+                d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7zm2 0v10h12V7H6zm2 3h2v2H8v-2zm4 0h2v2h-2v-2zm4 0h-2v2h2v-2zM8 15h8v-2H8v2z"
+                fill="#fff"
+              />
+            </svg>
+          </span>
+          <h1 className="text-5xl font-extrabold text-white drop-shadow mb-2 tracking-tight">
+            Privacy Policy
+          </h1>
+          <p className="text-lg text-blue-100 font-medium max-w-xl text-center">
+            Learn how we protect your privacy and data.
+          </p>
+        </div>
       </header>
 
       {/* Wrapper for background and content */}
