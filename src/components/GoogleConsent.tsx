@@ -17,7 +17,7 @@ declare global {
 }
 
 export default function GoogleConsent() {
-  const [showConsent, setShowConsent] = useState(true);
+  const [showConsent, setShowConsent] = useState<null | boolean>(null);
   const [showSettings, setShowSettings] = useState(false);
   const [settings, setSettings] = useState<ConsentSettings>({
     necessary: true, // 필수 쿠키는 항상 true
@@ -25,6 +25,21 @@ export default function GoogleConsent() {
     marketing: false,
     preferences: false,
   });
+
+  // 쿠키 체크: 이미 동의/거부/설정이 있으면 배너 숨김
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      const cookies = document.cookie;
+      if (
+        cookies.includes("consent=accepted") ||
+        cookies.includes("consent_settings=")
+      ) {
+        setShowConsent(false);
+      } else {
+        setShowConsent(true);
+      }
+    }
+  }, []);
 
   const handleConsent = () => {
     // 모든 쿠키 허용
@@ -58,7 +73,8 @@ export default function GoogleConsent() {
     }));
   };
 
-  if (!showConsent) return null;
+  // showConsent가 true일 때만 렌더링
+  if (showConsent !== true) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 shadow-lg z-50">
