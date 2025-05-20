@@ -31,8 +31,23 @@ function useMechKeySound() {
   return play;
 }
 
+interface NumPadEvent {
+  key: string;
+  code: string;
+  keyCode: number;
+  which: number;
+  location: number;
+  ctrlKey: boolean;
+  shiftKey: boolean;
+  altKey: boolean;
+  metaKey: boolean;
+  repeat: boolean;
+}
+
 const NumPad: React.FC = () => {
-  const [pressedKeys, setPressedKeys] = useState<Set<string>>(new Set());
+  const [pressedKeys, setPressedKeys] = useState<{ [key: string]: boolean }>(
+    {}
+  );
   const [keyHistory, setKeyHistory] = useState<Set<string>>(new Set());
   const playSound = useMechKeySound();
 
@@ -59,22 +74,19 @@ const NumPad: React.FC = () => {
 
   // 마우스 클릭용 핸들러 분리
   const handleMouseDown = (key: string) => {
-    setPressedKeys((prev) => new Set(prev).add(key));
+    setPressedKeys((prev) => ({ ...prev, [key]: true }));
     setKeyHistory((prev) => new Set(prev).add(key));
     playSound();
   };
+
   const handleMouseUp = (key: string) => {
-    setPressedKeys((prev) => {
-      const newSet = new Set(prev);
-      newSet.delete(key);
-      return newSet;
-    });
+    setPressedKeys((prev) => ({ ...prev, [key]: false }));
   };
 
   // 키보드 이벤트로 넘패드 반응
   useEffect(() => {
-    const codeToLabel = (code: string): string | null => {
-      switch (code) {
+    const getDisplayKeyFromEvent = (event: NumPadEvent): string => {
+      switch (event.code) {
         case "Numpad0":
           return "0";
         case "Numpad1":
@@ -110,34 +122,40 @@ const NumPad: React.FC = () => {
         case "NumLock":
           return "Num Lck";
         default:
-          return null;
+          return "";
       }
     };
-    const handleKeyDown = (e: KeyboardEvent) => {
-      const label = codeToLabel(e.code);
-      if (label) {
-        setPressedKeys((prev) => new Set(prev).add(label));
-        setKeyHistory((prev) => new Set(prev).add(label));
-        playSound();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!event.code.startsWith("Numpad")) return;
+      event.preventDefault();
+      playSound();
+
+      const displayKey = getDisplayKeyFromEvent(event as NumPadEvent);
+      if (displayKey) {
+        setPressedKeys((prev) => ({ ...prev, [displayKey]: true }));
+        setKeyHistory((prev) => new Set(prev).add(displayKey));
       }
     };
-    const handleKeyUp = (e: KeyboardEvent) => {
-      const label = codeToLabel(e.code);
-      if (label) {
-        setPressedKeys((prev) => {
-          const newSet = new Set(prev);
-          newSet.delete(label);
-          return newSet;
-        });
+
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (!event.code.startsWith("Numpad")) return;
+      event.preventDefault();
+
+      const displayKey = getDisplayKeyFromEvent(event as NumPadEvent);
+      if (displayKey) {
+        setPressedKeys((prev) => ({ ...prev, [displayKey]: false }));
       }
     };
+
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
+
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, []);
+  }, [playSound]);
 
   return (
     <div className="flex flex-col items-center pl-2 pr-4 pt-2 pb-4 bg-gray-200 rounded-xl shadow-2xl border-2 border-gray-400">
@@ -161,7 +179,7 @@ const NumPad: React.FC = () => {
           >
             <Key
               label={label === "Enter" ? "Entr" : label}
-              isPressed={pressedKeys.has(label)}
+              isPressed={pressedKeys[label] || false}
               wasPressed={keyHistory.has(label)}
               className="w-full h-full text-base"
             />

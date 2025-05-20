@@ -53,7 +53,7 @@ export default function Contact() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  We're here to help! You can reach us through any of the
+                  We&apos;re here to help! You can reach us through any of the
                   following methods:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
@@ -89,7 +89,7 @@ export default function Contact() {
                 <p>
                   We strive to respond to all inquiries within 24-48 hours
                   during business days. For urgent matters, please include
-                  "URGENT" in your email subject line.
+                  &ldquo;URGENT&rdquo; in your email subject line.
                 </p>
               </div>
             </section>

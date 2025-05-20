@@ -15,10 +15,10 @@ export default function AdComponent({
 }: AdComponentProps) {
   useEffect(() => {
     try {
-      // @ts-ignore
+      // @ts-expect-error adsbygoogle is injected by the script
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (err) {
-      console.error("AdSense error:", err);
+      console.error("Error loading ad:", err);
     }
   }, []);
 

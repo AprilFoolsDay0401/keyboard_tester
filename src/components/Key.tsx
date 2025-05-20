@@ -7,7 +7,6 @@ interface KeyProps {
   isPressed: boolean;
   wasPressed?: boolean;
   className?: string;
-  isSpecialKey?: boolean;
   onMouseDown?: () => void;
   onMouseUp?: () => void;
   onMouseLeave?: () => void;
@@ -18,7 +17,6 @@ const Key: React.FC<KeyProps> = ({
   isPressed,
   wasPressed,
   className = "",
-  isSpecialKey = false,
   onMouseDown,
   onMouseUp,
   onMouseLeave,
