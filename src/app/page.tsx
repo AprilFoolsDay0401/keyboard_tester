@@ -55,7 +55,7 @@ export default function LandingPage() {
         {/* Features Section */}
         <section className="flex flex-col items-center text-center mb-12 max-w-3xl mx-auto">
           <h2 className="text-3xl font-semibold mb-6 text-gray-800">
-            Why Choose Our Tester?
+            Why Choose Our Test?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="p-6 bg-blue-50 rounded-lg shadow-xl text-gray-800 transition-all transform hover:scale-105 flex flex-col items-center">

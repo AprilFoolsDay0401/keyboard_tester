@@ -24,7 +24,7 @@ const Key: React.FC<KeyProps> = ({
   onMouseLeave,
 }) => {
   const getKeySize = (label: string) => {
-    if (label === "Space") return "w-70";
+    if (label === "Space") return "w-72";
     if (label === "Backspace") return "w-22";
     if (label === "Enter") return "w-24";
     if (label === "Left Shift" || label === "Right Shift") return "w-24";

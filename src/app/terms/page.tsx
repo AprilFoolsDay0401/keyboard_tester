@@ -53,8 +53,8 @@ export default function Terms() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  By accessing and using Keyboard Tester, you agree to be bound
-                  by these Terms of Service and all applicable laws and
+                  By accessing and using Keyboard Test, you agree to be bound by
+                  these Terms of Service and all applicable laws and
                   regulations. If you do not agree with any of these terms, you
                   are prohibited from using or accessing this site.
                 </p>
@@ -67,7 +67,7 @@ export default function Terms() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Permission is granted to temporarily use Keyboard Tester for
+                  Permission is granted to temporarily use Keyboard Test for
                   personal, non-commercial purposes. This is the grant of a
                   license, not a transfer of title, and under this license you
                   may not:
@@ -77,7 +77,7 @@ export default function Terms() {
                   <li>Use the materials for any commercial purpose</li>
                   <li>
                     Attempt to decompile or reverse engineer any software
-                    contained on Keyboard Tester
+                    contained on Keyboard Test
                   </li>
                   <li>
                     Remove any copyright or other proprietary notations from the
@@ -93,7 +93,7 @@ export default function Terms() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  The materials on Keyboard Tester are provided on an 'as is'
+                  The materials on Keyboard Test are provided on an 'as is'
                   basis. We make no warranties, expressed or implied, and hereby
                   disclaim and negate all other warranties including, without
                   limitation, implied warranties or conditions of
@@ -110,11 +110,11 @@ export default function Terms() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  In no event shall Keyboard Tester or its suppliers be liable
-                  for any damages (including, without limitation, damages for
-                  loss of data or profit, or due to business interruption)
-                  arising out of the use or inability to use the materials on
-                  Keyboard Tester.
+                  In no event shall Keyboard Test or its suppliers be liable for
+                  any damages (including, without limitation, damages for loss
+                  of data or profit, or due to business interruption) arising
+                  out of the use or inability to use the materials on Keyboard
+                  Test.
                 </p>
               </div>
             </section>
@@ -125,7 +125,7 @@ export default function Terms() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  The materials appearing on Keyboard Tester could include
+                  The materials appearing on Keyboard Test could include
                   technical, typographical, or photographic errors. We do not
                   warrant that any of the materials on our website are accurate,
                   complete, or current. We may make changes to the materials
@@ -143,7 +143,7 @@ export default function Terms() {
                   We have not reviewed all of the sites linked to our website
                   and are not responsible for the contents of any such linked
                   site. The inclusion of any link does not imply endorsement by
-                  Keyboard Tester of the site. Use of any such linked website is
+                  Keyboard Test of the site. Use of any such linked website is
                   at the user's own risk.
                 </p>
               </div>
@@ -172,8 +172,8 @@ export default function Terms() {
                   contact us at:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Email: support@keyboardtester.com</li>
-                  <li>Website: www.keyboardtester.com</li>
+                  <li>Email: support@keyboardtest.pro</li>
+                  <li>Website: www.keyboardtest.pro</li>
                 </ul>
               </div>
             </section>

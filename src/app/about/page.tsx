@@ -105,8 +105,8 @@ export default function About() {
                   contact us at:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Email: support@keyboardtester.com</li>
-                  <li>Website: www.keyboardtester.com</li>
+                  <li>Email: support@keyboardtest.pro</li>
+                  <li>Website: www.keyboardtest.pro</li>
                 </ul>
               </div>
             </section>

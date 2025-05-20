@@ -43,7 +43,7 @@ export default function KeyboardPage() {
       <div className="flex flex-col items-center justify-center min-h-[60vh] p-4 text-center">
         <h2 className="text-2xl font-bold mb-4">Please Rotate Your Device</h2>
         <p className="text-gray-600">
-          Keyboard tester requires landscape mode.
+          Keyboard test requires landscape mode.
           <br />
           Please rotate your device 90 degrees.
         </p>
@@ -74,7 +74,7 @@ export default function KeyboardPage() {
             </Link>
           </span>
           <h1 className="text-5xl font-extrabold text-white drop-shadow tracking-tight">
-            Keyboard Tester
+            Keyboard Test
           </h1>
         </div>
         <p className="text-lg text-blue-100 font-medium max-w-xl text-center mt-2">

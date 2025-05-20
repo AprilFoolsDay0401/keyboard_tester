@@ -60,21 +60,21 @@ export default function Contact() {
                   <li>
                     <strong>Email:</strong>{" "}
                     <a
-                      href="mailto:support@keyboardtester.com"
+                      href="mailto:support@keyboardtest.pro"
                       className="text-blue-500 hover:text-blue-600"
                     >
-                      support@keyboardtester.com
+                      support@keyboardtest.pro
                     </a>
                   </li>
                   <li>
                     <strong>Website:</strong>{" "}
                     <a
-                      href="https://www.keyboardtester.com"
+                      href="https://www.keyboardtest.pro"
                       className="text-blue-500 hover:text-blue-600"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.keyboardtester.com
+                      www.keyboardtest.pro
                     </a>
                   </li>
                 </ul>
@@ -116,10 +116,10 @@ export default function Contact() {
                   For business-related inquiries, partnerships, or advertising
                   opportunities, please contact us at:{" "}
                   <a
-                    href="mailto:business@keyboardtester.com"
+                    href="mailto:business@keyboardtest.pro"
                     className="text-blue-500 hover:text-blue-600"
                   >
-                    business@keyboardtester.com
+                    business@keyboardtest.pro
                   </a>
                 </p>
               </div>

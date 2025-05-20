@@ -14,24 +14,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://temperary.com"),
-  title: "Keyboard Tester - Test Your Keyboard Online",
+  metadataBase: new URL("https://keyboardtest.pro"),
+  title: "Keyboard Test - Test Your Keyboard Online",
   description:
-    "Instantly check if every key on your keyboard works. Free, fast, and easy keyboard tester.",
+    "Instantly check if every key on your keyboard works. Free, fast, and easy keyboard test.",
   keywords:
     "keyboard tester, online keyboard test, numpad test, free keyboard checker, typing test, 키보드 테스트, 키보드 검사",
   openGraph: {
-    title: "Keyboard Tester - Test Your Keyboard Online",
+    title: "Keyboard Test - Test Your Keyboard Online",
     description:
-      "Instantly check if every key on your keyboard works. Free, fast, and easy keyboard tester.",
-    url: "https://temperary.com",
-    siteName: "Keyboard Tester",
+      "Instantly check if every key on your keyboard works. Free, fast, and easy keyboard test.",
+    url: "https://keyboardtest.pro",
+    siteName: "Keyboard Test",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Keyboard Tester Preview",
+        alt: "Keyboard Test Preview",
       },
     ],
     locale: "en_US",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Keyboard Tester - Test Your Keyboard Online",
+    title: "Keyboard Test - Test Your Keyboard Online",
     description:
       "Instantly check if every key on your keyboard works. Free, fast, and easy keyboard tester.",
     images: ["/og-image.svg"],
