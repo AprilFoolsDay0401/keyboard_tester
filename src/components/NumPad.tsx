@@ -10,7 +10,8 @@ function useMechKeySound() {
 
   useEffect(() => {
     audioCtxRef.current = new (window.AudioContext ||
-      (window as any).webkitAudioContext)();
+      (window as unknown as { webkitAudioContext: typeof AudioContext })
+        .webkitAudioContext)();
     fetch("/sounds/mech-key.wav")
       .then((res) => res.arrayBuffer())
       .then((arrayBuffer) => audioCtxRef.current!.decodeAudioData(arrayBuffer))

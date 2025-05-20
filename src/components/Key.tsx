@@ -21,27 +21,27 @@ const Key: React.FC<KeyProps> = ({
   onMouseUp,
   onMouseLeave,
 }) => {
-  const getKeySize = (label: string) => {
-    if (label === "Space") return "w-70";
-    if (label === "Backspace") return "w-23";
-    if (label === "Enter") return "w-24";
-    if (label === "Left Shift" || label === "Right Shift") return "w-24";
-    if (label === "Tab") return "w-16";
-    if (label === "Caps Lock") return "w-20";
-    if (label === "\\") return "w-16";
+  const getKeySize = (keyLabel: string) => {
+    if (keyLabel === "Space") return "w-70";
+    if (keyLabel === "Backspace") return "w-23";
+    if (keyLabel === "Enter") return "w-24";
+    if (keyLabel === "Left Shift" || keyLabel === "Right Shift") return "w-24";
+    if (keyLabel === "Tab") return "w-16";
+    if (keyLabel === "Caps Lock") return "w-20";
+    if (keyLabel === "\\") return "w-16";
     if (
-      label === "Left Ctrl" ||
-      label === "Right Ctrl" ||
-      label === "Left Alt" ||
-      label === "Right Alt" ||
-      label === "Left Win" ||
-      label === "Right Win"
+      keyLabel === "Left Ctrl" ||
+      keyLabel === "Right Ctrl" ||
+      keyLabel === "Left Alt" ||
+      keyLabel === "Right Alt" ||
+      keyLabel === "Left Win" ||
+      keyLabel === "Right Win"
     )
       return "w-16";
     return "w-10";
   };
 
-  const getKeyHeight = (label: string) => {
+  const getKeyHeight = (keyLabel: string) => {
     return "h-10";
   };
 
