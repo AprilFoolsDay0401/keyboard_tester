@@ -1,13 +1,55 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Keyboard from "../../components/Keyboard";
 import NumPad from "../../components/NumPad";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export default function KeyboardPage() {
   const [showNumPad, setShowNumPad] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      const isMobileDevice =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      setIsMobile(isMobileDevice);
+    };
+
+    const checkOrientation = () => {
+      setIsPortrait(window.matchMedia("(orientation: portrait)").matches);
+    };
+
+    // 초기 체크
+    checkDevice();
+    checkOrientation();
+
+    // 이벤트 리스너
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("orientationchange", checkOrientation);
+
+    return () => {
+      window.removeEventListener("resize", checkOrientation);
+      window.removeEventListener("orientationchange", checkOrientation);
+    };
+  }, []);
+
+  if (isMobile && isPortrait) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] p-4 text-center">
+        <h2 className="text-2xl font-bold mb-4">Please Rotate Your Device</h2>
+        <p className="text-gray-600">
+          Keyboard tester requires landscape mode.
+          <br />
+          Please rotate your device 90 degrees.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <main className="flex flex-col min-h-screen justify-between items-center p-2">
@@ -39,6 +81,7 @@ export default function Home() {
           Press any key to test your keyboard below.
         </p>
       </header>
+
       <div className="w-full max-w-5xl flex flex-col bg-white items-center pb-10 rounded-2xl shadow-2xl">
         <button
           type="button"

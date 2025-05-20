@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#e0e7ef"/>
+  <g transform="translate(540,215)">
+    <rect x="0" y="0" width="120" height="120" rx="24" fill="#2563eb" fill-opacity="0.15"/>
+    <path d="M16 35a8 8 0 0 1 8-8h72a8 8 0 0 1 8 8v50a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V35zm8 0v50h72V35H24zm16 15h12v12H40V50zm24 0h12v12H64V50zm24 0h-12v12h12V50zM40 75h48V63H40v12z" fill="#2563eb"/>
+  </g>
+  <text x="50%" y="420" text-anchor="middle" fill="#2563eb" font-size="72" font-family="'Segoe UI',Arial,sans-serif" font-weight="bold">Keyboard Tester</text>
+  <text x="50%" y="500" text-anchor="middle" fill="#2563eb" font-size="36" font-family="'Segoe UI',Arial,sans-serif">Test your keyboard online, instantly!</text>
+</svg> 
