@@ -1,9 +1,9 @@
 [build]
-command = "npm run build"
+command = "npm run build && npx @cloudflare/next-on-pages"
 cwd = "."
 
 [site]
-bucket = "./out"
+bucket = ".vercel/output/static"
 
 [env.production]
 name = "keyboard-tester"
@@ -11,4 +11,11 @@ compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat_do_not_populate_process_env"]
 
 [env.production.vars]
+NODE_VERSION = "18.18.0"
+
+[env.preview]
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat_do_not_populate_process_env"]
+
+[env.preview.vars]
 NODE_VERSION = "18.18.0" 
