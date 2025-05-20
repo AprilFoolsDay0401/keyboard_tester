@@ -49,107 +49,155 @@ export default function PrivacyPolicy() {
           <div className="space-y-8">
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                Cookie Policy
+                Consent Management
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  This Cookie Policy explains how we use cookies and similar
-                  technologies on our keyboard testing website.
+                  We respect your privacy and give you control over your data.
+                  You can manage your consent preferences at any time through
+                  our consent management tool.
                 </p>
-
-                <h3 className="text-xl font-medium mt-6 mb-3 text-gray-800">
-                  What are cookies?
-                </h3>
                 <p>
-                  Cookies are small text files that are stored on your computer
-                  or mobile device when you visit a website. They are widely
-                  used to make websites work more efficiently and provide useful
-                  information to website owners.
+                  When you first visit our website, you'll be presented with a
+                  consent banner where you can:
                 </p>
-
-                <h3 className="text-xl font-medium mt-6 mb-3 text-gray-800">
-                  How we use cookies
-                </h3>
-                <p>We use cookies for the following purposes:</p>
-                <ul className="list-disc pl-6 space-y-2 mt-2">
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Accept all cookies and tracking technologies</li>
+                  <li>Reject non-essential cookies</li>
                   <li>
-                    <strong>Essential cookies:</strong> These cookies are
-                    necessary for the website to function properly. They enable
-                    basic functions like page navigation and access to secure
-                    areas of the website.
-                  </li>
-                  <li>
-                    <strong>Preference cookies:</strong> These cookies remember
-                    your settings and preferences, such as your language
-                    preference or whether you've accepted our cookie policy.
-                  </li>
-                  <li>
-                    <strong>Analytics cookies:</strong> We use these cookies to
-                    understand how visitors interact with our website, which
-                    helps us improve our services.
+                    Customize your preferences for different types of cookies
                   </li>
                 </ul>
+              </div>
+            </section>
 
-                <h3 className="text-xl font-medium mt-6 mb-3 text-gray-800">
-                  Your cookie preferences
-                </h3>
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                Data Collection & Processing
+              </h2>
+              <div className="space-y-4 text-gray-700">
+                <p>We collect and process data for the following purposes:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>
+                    <strong>Essential Data:</strong> Required for the website to
+                    function properly (e.g., keyboard input for testing)
+                  </li>
+                  <li>
+                    <strong>Analytics Data:</strong> To understand how visitors
+                    use our website and improve our services
+                  </li>
+                  <li>
+                    <strong>Preference Data:</strong> To remember your settings
+                    and preferences
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                Cookies & Tracking Technologies
+              </h2>
+              <div className="space-y-4 text-gray-700">
                 <p>
-                  You can control and/or delete cookies as you wish. You can
-                  delete all cookies that are already on your computer and you
-                  can set most browsers to prevent them from being placed. If
-                  you do this, however, you may have to manually adjust some
-                  preferences every time you visit our site.
+                  We use the following types of cookies and tracking
+                  technologies:
                 </p>
-
-                <h3 className="text-xl font-medium mt-6 mb-3 text-gray-800">
-                  Updates to this policy
-                </h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>
+                    <strong>Essential Cookies:</strong> Required for basic
+                    website functionality
+                  </li>
+                  <li>
+                    <strong>Analytics Cookies:</strong> Used by Google Analytics
+                    4 to collect anonymous usage data
+                  </li>
+                  <li>
+                    <strong>Preference Cookies:</strong> Remember your settings
+                    and choices
+                  </li>
+                </ul>
                 <p>
-                  We may update this Cookie Policy from time to time. We will
-                  notify you of any changes by posting the new Cookie Policy on
-                  this page.
-                </p>
-
-                <h3 className="text-xl font-medium mt-6 mb-3 text-gray-800">
-                  Contact us
-                </h3>
-                <p>
-                  If you have any questions about our Cookie Policy, please
-                  contact us at support@keyboardtest.pro
+                  You can control these cookies through your browser settings or
+                  our consent management tool.
                 </p>
               </div>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                Data Protection
+                Google Analytics 4 Usage
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  We are committed to protecting your privacy and ensuring the
-                  security of your personal data. We only collect and process
-                  data that is necessary for the functioning of our keyboard
-                  testing service.
+                  We use Google Analytics 4 to understand how visitors interact
+                  with our website. This includes:
                 </p>
-
-                <h3 className="text-xl font-medium mt-6 mb-3 text-gray-800">
-                  Data we collect
-                </h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Keyboard input data (for testing purposes only)</li>
-                  <li>Cookie preferences</li>
-                  <li>Basic usage statistics</li>
+                  <li>Page views and navigation patterns</li>
+                  <li>Time spent on pages</li>
+                  <li>Device and browser information</li>
+                  <li>Geographic location (country/region level)</li>
                 </ul>
-
-                <h3 className="text-xl font-medium mt-6 mb-3 text-gray-800">
-                  How we protect your data
-                </h3>
                 <p>
-                  We implement appropriate technical and organizational measures
-                  to protect your personal data against unauthorized or unlawful
-                  processing and against accidental loss, destruction, or
-                  damage.
+                  All data is anonymized and aggregated. We do not collect
+                  personally identifiable information through Google Analytics.
                 </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                User Rights & Choices
+              </h2>
+              <div className="space-y-4 text-gray-700">
+                <p>You have the right to:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Access your personal data</li>
+                  <li>Correct inaccurate data</li>
+                  <li>Request deletion of your data</li>
+                  <li>Object to data processing</li>
+                  <li>Withdraw consent at any time</li>
+                </ul>
+                <p>
+                  To exercise these rights, please contact us at
+                  support@keyboardtest.pro
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                Data Retention
+              </h2>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  We retain your data for as long as necessary to provide our
+                  services and comply with legal obligations:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Analytics data: 26 months</li>
+                  <li>Cookie preferences: Until you change them</li>
+                  <li>Essential data: For the duration of your session</li>
+                </ul>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                Updates & Contact
+              </h2>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  We may update this Privacy Policy from time to time. We will
+                  notify you of any changes by posting the new policy on this
+                  page.
+                </p>
+                <p>
+                  If you have any questions about this Privacy Policy or our
+                  data practices, please contact us at:
+                </p>
+                <p className="font-medium">Email: support@keyboardtest.pro</p>
               </div>
             </section>
           </div>

@@ -89,7 +89,56 @@ export default function Terms() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                3. Disclaimer
+                3. Data Processing and Consent
+              </h2>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  By using our service, you consent to our data processing
+                  practices as described in our Privacy Policy. This includes:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>
+                    Collection and processing of keyboard input data for testing
+                    purposes
+                  </li>
+                  <li>Use of cookies and similar tracking technologies</li>
+                  <li>
+                    Processing of analytics data through Google Analytics 4
+                  </li>
+                  <li>Storage of your preferences and settings</li>
+                </ul>
+                <p>
+                  You can manage your consent preferences at any time through
+                  our consent management tool.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                4. Cookies and Tracking Technologies
+              </h2>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  Our website uses cookies and similar tracking technologies to
+                  enhance your experience. By using our service, you agree to
+                  our use of:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Essential cookies required for website functionality</li>
+                  <li>Analytics cookies for understanding user behavior</li>
+                  <li>Preference cookies for remembering your settings</li>
+                </ul>
+                <p>
+                  You can control these technologies through your browser
+                  settings or our consent management tool.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                5. Disclaimer
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
@@ -106,7 +155,7 @@ export default function Terms() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                4. Limitations
+                6. Limitations
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
@@ -121,7 +170,7 @@ export default function Terms() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                5. Revisions and Errata
+                7. Revisions and Errata
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
@@ -136,7 +185,7 @@ export default function Terms() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                6. Links
+                8. Links
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
@@ -151,7 +200,7 @@ export default function Terms() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                7. Modifications
+                9. Modifications
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
@@ -164,7 +213,7 @@ export default function Terms() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                8. Contact Information
+                10. Contact Information
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
