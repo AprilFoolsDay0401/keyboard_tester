@@ -115,7 +115,7 @@ export default function PrivacyPolicy() {
                 </h3>
                 <p>
                   If you have any questions about our Cookie Policy, please
-                  contact us at support@keyboardtester.com
+                  contact us at support@keyboardtest.pro
                 </p>
               </div>
             </section>
