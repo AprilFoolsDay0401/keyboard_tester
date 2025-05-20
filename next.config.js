@@ -18,9 +18,7 @@ const nextConfig = {
       "www.googletagservices.com",
     ],
   },
-  experimental: {
-    serverComponentsExternalPackages: ["sharp"],
-  },
+  serverExternalPackages: ["sharp"],
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.externals.push({
