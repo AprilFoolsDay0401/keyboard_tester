@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import CookieConsent from "../components/CookieConsent";
+import GoogleConsent from "../components/GoogleConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://keyboardtest.pro"),
   title: "Keyboard Test - Test Your Keyboard Online",
   description:
-    "Instantly check if every key on your keyboard works. Free, fast, and easy keyboard test.",
+    "Test your keyboard online. Check if your keyboard is working properly. Test all keys, including special keys and key combinations.",
   keywords:
     "keyboard tester, online keyboard test, numpad test, free keyboard checker, typing test, 키보드 테스트, 키보드 검사",
   openGraph: {
     title: "Keyboard Test - Test Your Keyboard Online",
     description:
-      "Instantly check if every key on your keyboard works. Free, fast, and easy keyboard test.",
+      "Test your keyboard online. Check if your keyboard is working properly. Test all keys, including special keys and key combinations.",
     url: "https://keyboardtest.pro",
     siteName: "Keyboard Test",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Keyboard Test - Test Your Keyboard Online",
     description:
-      "Instantly check if every key on your keyboard works. Free, fast, and easy keyboard tester.",
+      "Test your keyboard online. Check if your keyboard is working properly. Test all keys, including special keys and key combinations.",
     images: ["/og-image.svg"],
   },
   icons: {
@@ -67,7 +67,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <CookieConsent />
+        <GoogleConsent />
       </body>
     </html>
   );
