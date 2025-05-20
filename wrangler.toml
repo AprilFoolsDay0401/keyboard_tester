@@ -8,4 +8,7 @@ bucket = "./out"
 [env.production]
 name = "keyboard-tester"
 compatibility_date = "2024-01-01"
-compatibility_flags = ["nodejs_compat"] 
+compatibility_flags = ["nodejs_compat_do_not_populate_process_env"]
+
+[env.production.vars]
+NODE_VERSION = "18.18.0" 
