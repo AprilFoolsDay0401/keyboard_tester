@@ -26,7 +26,7 @@ export default function LandingPage() {
             </Link>
           </span>
           <h1 className="text-5xl font-extrabold text-white drop-shadow tracking-tight">
-            Keyboard Tester
+            Keyboard Test
           </h1>
         </div>
         <p className="text-lg text-blue-100 font-medium max-w-xl text-center mt-2">

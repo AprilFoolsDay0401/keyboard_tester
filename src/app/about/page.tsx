@@ -53,7 +53,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Welcome to Keyboard Tester, your go-to tool for testing and
+                  Welcome to Keyboard Test, your go-to tool for testing and
                   troubleshooting keyboard functionality. Our mission is to
                   provide a simple, reliable, and user-friendly solution for
                   keyboard testing needs.
