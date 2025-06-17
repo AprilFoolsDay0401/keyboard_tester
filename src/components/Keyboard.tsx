@@ -32,17 +32,9 @@ function useMechKeySound() {
   return play;
 }
 
-interface KeyboardEvent {
-  key: string;
-  code: string;
-  keyCode: number;
-  which: number;
-  location: number;
-  ctrlKey: boolean;
-  shiftKey: boolean;
-  altKey: boolean;
-  metaKey: boolean;
-  repeat: boolean;
+// 브라우저의 표준 KeyboardEvent를 사용하되, 필요한 경우 확장
+interface CustomKeyboardEvent extends KeyboardEvent {
+  // 추가적인 속성이 필요한 경우 여기에 정의
 }
 
 const Keyboard: React.FC = () => {
@@ -136,6 +128,16 @@ const Keyboard: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      // Tab 키의 기본 동작(포커스 이동)을 방지
+      if (event.key === "Tab") {
+        event.preventDefault();
+      }
+
+      // Esc 키의 기본 동작(시스템 소리)을 방지 (특히 사파리)
+      if (event.key === "Escape") {
+        event.preventDefault();
+      }
+
       const key = getDisplayKeyFromEvent(event);
       if (key) {
         playSound();
@@ -145,6 +147,16 @@ const Keyboard: React.FC = () => {
     };
 
     const handleKeyUp = (event: KeyboardEvent) => {
+      // Tab 키의 기본 동작(포커스 이동)을 방지
+      if (event.key === "Tab") {
+        event.preventDefault();
+      }
+
+      // Esc 키의 기본 동작(시스템 소리)을 방지 (특히 사파리)
+      if (event.key === "Escape") {
+        event.preventDefault();
+      }
+
       const key = getDisplayKeyFromEvent(event);
       if (key) {
         setPressedKeys((prev) => ({ ...prev, [key]: false }));
@@ -158,7 +170,7 @@ const Keyboard: React.FC = () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [getDisplayKeyFromEvent, playSound]);
+  }, [playSound]);
 
   // 마우스 클릭용 핸들러 추가
   const handleMouseDown = (key: string) => {
