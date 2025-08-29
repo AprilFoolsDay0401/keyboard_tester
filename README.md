@@ -36,15 +36,34 @@ A modern, responsive web application for testing keyboard functionality. Built w
 - **Build Tool**: Next.js built-in bundler
 - **Package Manager**: npm
 
-## 📱 Screenshots
+## 📱 Features Preview
 
-### Desktop View
+### ✨ **Interactive Keyboard Testing**
 
-![Desktop View](https://via.placeholder.com/800x500/2563eb/ffffff?text=Desktop+Keyboard+Tester)
+- **Real-time Key Detection**: Press any key and see instant visual feedback
+- **Complete Key Coverage**: Test all keys from A-Z, 0-9, function keys, and special characters
+- **Visual Feedback**: Keys light up in green when pressed, with smooth animations
+- **Key History**: Track which keys have been tested during your session
 
-### Mobile View
+### 🎵 **Audio Experience**
 
-![Mobile View](https://via.placeholder.com/400x600/2563eb/ffffff?text=Mobile+Keyboard+Tester)
+- **Mechanical Keyboard Sounds**: Authentic click sounds for every key press
+- **Web Audio API**: High-quality audio feedback using modern browser technologies
+- **Customizable Audio**: Easy to enable/disable sound effects
+
+### 📱 **Responsive Design**
+
+- **Mobile-First Approach**: Optimized for all device sizes
+- **Landscape Detection**: Automatic orientation handling for mobile devices
+- **Touch-Friendly Interface**: Works perfectly on touchscreens and desktop
+- **Adaptive Layouts**: Automatically adjusts to different screen resolutions
+
+### 🎨 **Modern UI/UX**
+
+- **Clean Design**: Minimalist interface with professional aesthetics
+- **Smooth Animations**: CSS transitions and hover effects
+- **Accessible Colors**: High contrast and readable typography
+- **Professional Branding**: Consistent design language throughout
 
 ## 🚀 Getting Started
 
